@@ -17,32 +17,14 @@
 | 구현 여부 |  | 함수 이름 | 입력 | 출력 형태 | 출력 내용 | 설명 |
 | --- | --- | --- | --- | --- | --- | --- |
 | V | send | mintRoseToken | - | - | - | 새로운 장미꽃 nft를 민팅합니다. |
-| V | call | getRoseTokens | address _roseTokenOwner // 사용자 지갑 주소 | RoseTokenData[] | uint256 roseTokenId; // 장미꽃 아이디 uint256 rosePrice; // 장미꽃 가격(0) 
-uint256 roseColor; // 장미꽃 색깔 
-uint256 roseType; // 장미꽃 종류(잡초, 해바라기 등)
-uint256 createdAt; // 씨앗 생성 시점
-address userAddress; // 해당 행성을 소유한 사용자 지갑 주소
-bool onSale; // 판매 여부 | 사용자가 보유한 장미꽃 nft 리스트를 반환합니다. |
+| V | call | getRoseTokens | address _roseTokenOwner // 사용자 지갑 주소 | RoseTokenData[] | uint256 roseTokenId; // 장미꽃 아이디 uint256 rosePrice; // 장미꽃 가격(0) <br /> uint256 roseColor; // 장미꽃 색깔  <br /> uint256 roseType; // 장미꽃 종류(잡초, 해바라기 등)  <br /> uint256 createdAt; // 씨앗 생성 시점  <br /> address userAddress; // 해당 행성을 소유한 사용자 지갑 주소 <br /> bool onSale; // 판매 여부 | 사용자가 보유한 장미꽃 nft 리스트를 반환합니다. |
 | V | call | b612AddressMap | uint256 _ |  |  |  |
-| V | call | getOnSaleRose | - | RoseTokenData[] | uint256 roseTokenId; // 장미꽃 아이디 uint256 rosePrice; // 장미꽃 가격 
-uint256 roseColor; // 장미꽃 색깔 
-uint256 roseType; // 장미꽃 종류(잡초, 해바라기 등)
-uint256 createdAt; // 씨앗 구매 시점
-address userAddress; // 해당 행성을 소유한 사용자 지갑 주소
-bool onSale; // 판매 여부 | 판매중인 전체 장미꽃 nft 리스트를 반환합니다. |
-| V | call | getRoseSalesLog | uint256 _roseTokenId // 장미꽃 nft의 토큰 아이디 | RoseSalesLog[] | uint256 rosePrice; // 판매된 가격
-address roseSeller; // 판매자
-address roseBuyer; // 구매자
-uint soldAt; // 판매 시점
-uint next; // 다음 노드 주소 저장 | 특정 장미꽃 nft의 판매, 구매 기록 리스트를 반환합니다. |
-| V | send | setForSaleRoseToken | uint256 _roseTokenId, // 장미꽃 nft의 토큰 아이디
-uint256 _price // 팔고자 하는 가격 | - | - | 특정 사용자가 특정 장미꽃 nft를 판매하기 위해 marketplace에 올립니다. |
+| V | call | getOnSaleRose | - | RoseTokenData[] | uint256 roseTokenId; // 장미꽃 아이디 uint256 rosePrice; // 장미꽃 가격  <br /> uint256 roseColor; // 장미꽃 색깔  <br /> uint256 roseType; // 장미꽃 종류(잡초, 해바라기 등)  <br /> uint256 createdAt; // 씨앗 구매 시점  <br /> address userAddress; // 해당 행성을 소유한 사용자 지갑 주소  <br /> bool onSale; // 판매 여부 | 판매중인 전체 장미꽃 nft 리스트를 반환합니다. |
+| V | call | getRoseSalesLog | uint256 _roseTokenId // 장미꽃 nft의 토큰 아이디 | RoseSalesLog[] | uint256 rosePrice; // 판매된 가격  <br /> address roseSeller; // 판매자  <br /> address roseBuyer; // 구매자  <br /> uint soldAt; // 판매 시점  <br /> uint next; // 다음 노드 주소 저장 | 특정 장미꽃 nft의 판매, 구매 기록 리스트를 반환합니다. |
+| V | send | setForSaleRoseToken | uint256 _roseTokenId, // 장미꽃 nft의 토큰 아이디  <br /> uint256 _price // 팔고자 하는 가격 | - | - | 특정 사용자가 특정 장미꽃 nft를 판매하기 위해 marketplace에 올립니다. |
 | V | send | discardForSaleRoseToken | uint256 _roseTokenId, // 장미꽃 nft의 토큰 아이디 | - | - | 특정 사용자가 특정 장미꽃 nft를 판매를 취소합니다. |
 | V | send | purchaseRoseToken | uint256 _roseTokenId // 장미꽃 nft의 토큰 아이디 | - | - | 특정 사용자가 특정 장미꽃 nft를 구매합니다. |
-| V | send | setApprovalForAll | address operator, // 배포 주소
-boolean approved // 승인 여부 | - | - | 특정 사용자가 해당 배포 주소에서 구매/판매 할 수 있도록 승인여부를 지정합니다. |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| V | send | setApprovalForAll | address operator, // 배포 주소  <br /> boolean approved // 승인 여부 | - | - | 특정 사용자가 해당 배포 주소에서 구매/판매 할 수 있도록 승인여부를 지정합니다. |
 
 ## PlanetToken.sol : 행성 nft와 관련된 기능을 구현한 파일입니다.
 
@@ -52,49 +34,16 @@ boolean approved // 승인 여부 | - | - | 특정 사용자가 해당 배포 �
 
 | 구현 여부 |  | 함수 이름 | 입력 | 출력 형태 | 출력 내용 | 설명 |
 | --- | --- | --- | --- | --- | --- | --- |
-| V | send | mintPlanetToken | - | - | - | 새로운 행성 nft를 민팅합니다.
-행성 아이디 : auto increment
-행성 가격 : 0
-행성 색깔 : 랜덤 HEX
-행성 유형 : 10가지 type 중 랜덤 한 개
-행성 이름 : 유형에 맞추어 램덤으로 설정
-구매 시점 : 민팅 시점 |
-| V | call | getPlanetTokens | address _planetTokenOwner // 사용자 지갑 주소 | PlanetTokenData[] | uint256 planetTokenId; // 행성 아이디
-uint256 planetPrice; // 행성 가격
-uint256 planetType; // 행성 유형(모양)
-string planetName; // 행성 이름
-uint createdAt; // 생성 시점
-address userAddress; // 해당 행성을 소유한 사용자 지갑 주소
-bool onSale; // 판매 여부 | 사용자가 보유한 행성 nft 리스트를 반환합니다. |
-| V | call | b612AddressMap | uint256 _planetTokenId // 행성 nft의 토큰 아이디 | PlanetTokenData | uint256 planetTokenId; // 행성 아이디uint256
-uint256 planetPrice; // 행성 가격 
-string planetColor; // 행성 색깔 
-uint256 planetType; // 행성 유형(모양)
-string planetName; // 행성 이름uint createdAt; // 구매 시점
-address userAddress; // 해당 행성을 소유한 사용자 지갑 주소
-bool onSale; // 판매 여부 | 특정 행성에 관한 정보를 반환합니다. |
-| V | call | getOnSalePlanet | - | PlanetTokenData[] | uint256 planetTokenId; // 행성 아이디uint256 
-uint256 planetPrice; // 행성 가격 
-string planetColor; // 행성 색깔 
-uint256 planetType; // 행성 유형(모양)
-string planetName; // 행성 이름uint createdAt; // 구매 시점
-address userAddress; // 해당 행성을 소유한 사용자 지갑 주소
-bool onSale; // 판매 여부 | 판매중인 전체 행성 nft 리스트를 반환합니다.
-
- |
-| V | call | getPlanetSalesLog | uint256 _planetTokenId // 행성 nft의 토큰 아이디 | PlanetSalesLog[] | uint256 planetPrice; // 판매된 가격
-address planetSeller; // 판매자
-address planetBuyer; // 구매자
-uint soldAt; // 판매 시점
-uint next; // 다음 노드 주소 저장 | 특정 행성 nft의 판매, 구매 기록 리스트를 반환합니다. |
-| V | send | setForSalePlanetToken | uint256 _planetTokenId, // 행성 nft의 토큰 아이디
-uint256 _price // 팔고자 하는 가격 | - | - | 특정 사용자가 특정 행성 nft를 판매하기 위해 marketplace에 올립니다. |
+| V | send | mintPlanetToken | - | - | - | 새로운 행성 nft를 민팅합니다.  <br /> 행성 아이디 : auto increment  <br /> 행성 가격 : 0  <br /> 행성 색깔 : 랜덤 HEX  <br /> 행성 유형 : 10가지 type 중 랜덤 한 개  <br /> 행성 이름 : 유형에 맞추어 램덤으로 설정  <br /> 구매 시점 : 민팅 시점 |
+| V | call | getPlanetTokens | address _planetTokenOwner // 사용자 지갑 주소 | PlanetTokenData[] | uint256 planetTokenId; // 행성 아이디  <br /> uint256 planetPrice; // 행성 가격  <br /> uint256 planetType; // 행성 유형(모양)  <br /> string planetName; // 행성 이름  <br /> uint createdAt; // 생성 시점  <br /> address userAddress; // 해당 행성을 소유한 사용자 지갑 주소  <br /> bool onSale; // 판매 여부 | 사용자가 보유한 행성 nft 리스트를 반환합니다. |
+| V | call | b612AddressMap | uint256 _planetTokenId // 행성 nft의 토큰 아이디 | PlanetTokenData | uint256 planetTokenId; // 행성 아이디uint256  <br /> uint256 planetPrice; // 행성 가격   <br /> string planetColor; // 행성 색깔   <br /> uint256 planetType; // 행성 유형(모양)  <br /> string planetName; // 행성 이름uint createdAt; // 구매 시점  <br /> address userAddress; // 해당 행성을 소유한 사용자 지갑 주소  <br />bool onSale; // 판매 여부 | 특정 행성에 관한 정보를 반환합니다. |
+| V | call | getOnSalePlanet | - | PlanetTokenData[] | uint256 planetTokenId; // 행성 아이디uint256  <br /> uint256 planetPrice; // 행성 가격  <br /> string planetColor; // 행성 색깔 <br /> uint256 planetType; // 행성 유형(모양) <br /> string planetName; // 행성 이름uint createdAt; // 구매 시점  <br /> address userAddress; // 해당 행성을 소유한 사용자 지갑 주소  <br /> bool onSale; // 판매 여부 | 판매중인 전체 행성 nft 리스트를 반환합니다. |
+| V | call | getPlanetSalesLog | uint256 _planetTokenId // 행성 nft의 토큰 아이디 | PlanetSalesLog[] | uint256 planetPrice; // 판매된 가격  <br /> address planetSeller; // 판매자  <br /> address planetBuyer; // 구매자  <br /> uint soldAt; // 판매 시점  <br /> uint next; // 다음 노드 주소 저장 | 특정 행성 nft의 판매, 구매 기록 리스트를 반환합니다. |
+| V | send | setForSalePlanetToken | uint256 _planetTokenId, // 행성 nft의 토큰 아이디 <br /> uint256 _price // 팔고자 하는 가격 | - | - | 특정 사용자가 특정 행성 nft를 판매하기 위해 marketplace에 올립니다. |
 | V | send | discardForSalePlanetToken | uint256 _planetTokenId, // 행성 nft의 토큰 아이디 | - | - | 특정 사용자가 특정 행성 nft를 판매를 취소합니다. |
 | V | send | purchasePlanetToken | uint256 _planetTokenId // 행성 nft의 토큰 아이디 | - | - | 특정 사용자가 특정 행성 nft를 구매합니다. |
-| V | send | setApprovalForAll | address operator, // 배포 주소
-boolean approved // 승인 여부 | - | - | 특정 사용자가 해당 배포 주소에서 구매/판매 할 수 있도록 승인여부를 지정합니다. |
-| V | call | isApprovedForAll | owner // 사용자 지갑 주소
-operator // contract 주소 | bool | contract에 대한 사용자의 승인 여부 | contract에 대한 사용자의 승인 여부를 출력합니다. |
+| V | send | setApprovalForAll | address operator, // 배포 주소  <br /> boolean approved // 승인 여부 | - | - | 특정 사용자가 해당 배포 주소에서 구매/판매 할 수 있도록 승인여부를 지정합니다. |
+| V | call | isApprovedForAll | owner // 사용자 지갑 주소 <br /> operator // contract 주소 | bool | contract에 대한 사용자의 승인 여부 | contract에 대한 사용자의 승인 여부를 출력합니다. |
 | V | call | totalSupply | - | - | nft 개수(uint) | 행성 nft의 총 개수를 리턴합니다. |
 | V | call | planetPrices | uint256 _planetTokenId // 행성 nft의 토큰 아이디 | uint256 | 가격 | 행성 nft의 가격을 리턴합니다. |
 
@@ -120,4 +69,3 @@ operator // contract 주소 | bool | contract에 대한 사용자의 승인 여�
 | V | getCurrentBid | address bidderAddress // 입찰자 지갑 주소 | uint | - | 특정 입찰자가 지금까지 입찰한 가장 높은 가격을 리턴합니다.  |
 | V | getHighestBid | - | uint | - | 현재까지 가장 높은 입찰가격을 리턴합니다. |
 | V | getHighestBidder | - | address | - | 현재까지 가장 높은 입찰을 한 입찰자의 지갑 주소를 리턴합니다. |
-|  |  |  |  |  |  |
